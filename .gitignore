@@ -1,0 +1,8 @@
+*.exe
+*
+!*.*
+!*/
+.vscode
+*.out
+*.db
+.env

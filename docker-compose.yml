@@ -1,0 +1,21 @@
+# Для тестирования работы
+volumes:
+  asynim_data:
+
+services:
+  asynim_db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - asynim_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+  demo_asynim:
+    environment:
+      DB_HOST: ${DB_HOST}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    build: ./project/
+    ports:
+      - "80:8080"
+    depends_on:
+      - asynim_db
