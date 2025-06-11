@@ -13,7 +13,7 @@ services:
       DB_HOST: ${DB_HOST}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-    image: # Разместите здесь ссылку на образ проекта с DockerHub
+    image: coconut0211/asynim:latest
     ports:
       - "80:8080"
     depends_on:
